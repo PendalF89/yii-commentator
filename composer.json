@@ -1,9 +1,9 @@
 {
-    "name": "PendalF89/yii-commentator",
+    "name": "pendalf89/yii-commentator",
     "description": "Yii comments module",
     "authors": [
         {
-            "name": "PendalF89",
+            "name": "pendalf89",
             "email": "pendalf@mail.ru"
         }
     ],
