@@ -8,5 +8,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "pendalf89\\yii_commentator\\": ""
+        }
+    }
 }
