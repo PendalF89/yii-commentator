@@ -1,6 +1,6 @@
 <?php
-namespace modules\comments;
-use modules\comments\models\CommentSettings as CommentSettings;
+namespace pendalf89\comments;
+use pendalf89\comments\models\CommentSettings as CommentSettings;
 
 class CommentsModule extends \CWebModule
 {
@@ -111,7 +111,7 @@ class CommentsModule extends \CWebModule
     /**
      * @var string пространство имён контроллера
      */
-    public $controllerNamespace = 'modules\comments\controllers';
+    public $controllerNamespace = 'pendalf89\comments\controllers';
 
     /**
      * Инициализация модуля

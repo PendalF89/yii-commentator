@@ -1,8 +1,8 @@
 <?php
-namespace modules\comments\controllers;
-use modules\comments\models\Comment as Comment;
-use modules\comments\models\NewComments as NewComments;
-use modules\comments\models\CommentSettings as CommentSettings;
+namespace pendalf89\comments\controllers;
+use pendalf89\comments\models\Comment as Comment;
+use pendalf89\comments\models\NewComments as NewComments;
+use pendalf89\comments\models\CommentSettings as CommentSettings;
 
 class AdminController extends \Controller
 {
@@ -129,7 +129,7 @@ class AdminController extends \Controller
         {
             $model->attributes = $_POST['modules_comments_models_CommentSettings'];
             if ( $model->save() )
-                \Yii::app()->user->setFlash('settings_saved', \Yii::t('modules\comments\CommentsModule.main', 'Settings saved successfully'));
+                \Yii::app()->user->setFlash('settings_saved', \Yii::t('pendalf89\comments\CommentsModule.main', 'Settings saved successfully'));
         }
 
         $this->render('application.modules.comments.views.admin.settings', array('model'=>$model));

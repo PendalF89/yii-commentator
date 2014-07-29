@@ -1,6 +1,6 @@
 <?php
-use modules\comments\helpers\CHelper as CHelper;
-use modules\comments\models\Comment as Comment;
+use pendalf89\comments\helpers\CHelper as CHelper;
+use pendalf89\comments\models\Comment as Comment;
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-form form').submit(function(){
@@ -130,7 +130,7 @@ Yii::app()->clientScript->registerScript('reloadGrid',
     |
     <?php echo CHtml::ajaxSubmitButton('Удалить', array('ajaxDelete'), array(
         'beforeSend' => 'function(){
-            return confirm("' . Yii::t('modules\comments\CommentsModule.main', 'Are you sure you want to delete selected items?') . '");
+            return confirm("' . Yii::t('pendalf89\comments\CommentsModule.main', 'Are you sure you want to delete selected items?') . '");
         }',
         'success' => 'reloadGrid'
     )); ?>

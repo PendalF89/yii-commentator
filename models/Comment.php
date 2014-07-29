@@ -1,6 +1,6 @@
 <?php
-namespace modules\comments\models;
-use modules\comments\models\NewComments as NewComments;
+namespace pendalf89\comments\models;
+use pendalf89\comments\models\NewComments as NewComments;
 
 /**
  * This is the model class for table "comment".
@@ -435,11 +435,11 @@ class Comment extends \CActiveRecord
         switch ($this->status)
         {
             case self::STATUS_PENDING :
-                return $translate ? \Yii::t('modules\comments\CommentsModule.main', 'pending') : 'pending';
+                return $translate ? \Yii::t('pendalf89\comments\CommentsModule.main', 'pending') : 'pending';
             case self::STATUS_APPROVED :
-                return $translate ? \Yii::t('modules\comments\CommentsModule.main', 'approved') : 'approved';
+                return $translate ? \Yii::t('pendalf89\comments\CommentsModule.main', 'approved') : 'approved';
             case self::STATUS_REJECTED :
-                return $translate ? \Yii::t('modules\comments\CommentsModule.main', 'rejected') : 'rejected';
+                return $translate ? \Yii::t('pendalf89\comments\CommentsModule.main', 'rejected') : 'rejected';
         }
     }
 
@@ -449,9 +449,9 @@ class Comment extends \CActiveRecord
     public static function getStatusArray()
     {
         return array(
-            self::STATUS_PENDING => \Yii::t('modules\comments\CommentsModule.main', 'pending'),
-            self::STATUS_APPROVED => \Yii::t('modules\comments\CommentsModule.main', 'approved'),
-            self::STATUS_REJECTED => \Yii::t('modules\comments\CommentsModule.main', 'rejected'),
+            self::STATUS_PENDING => \Yii::t('pendalf89\comments\CommentsModule.main', 'pending'),
+            self::STATUS_APPROVED => \Yii::t('pendalf89\comments\CommentsModule.main', 'approved'),
+            self::STATUS_REJECTED => \Yii::t('pendalf89\comments\CommentsModule.main', 'rejected'),
         );
     }
 
@@ -461,8 +461,8 @@ class Comment extends \CActiveRecord
     public static function getNotifyStatusArray()
     {
         return array(
-            self::NOTIFY => \Yii::t('modules\comments\CommentsModule.main', 'yes'),
-            self::NOT_NOTIFY => \Yii::t('modules\comments\CommentsModule.main', 'no'),
+            self::NOTIFY => \Yii::t('pendalf89\comments\CommentsModule.main', 'yes'),
+            self::NOT_NOTIFY => \Yii::t('pendalf89\comments\CommentsModule.main', 'no'),
         );
     }
 
@@ -497,7 +497,7 @@ class Comment extends \CActiveRecord
      */
     public function getNotifyStatus()
     {
-        return $this->notify ? \Yii::t('modules\comments\CommentsModule.main', 'yes') : \Yii::t('modules\comments\CommentsModule.main', 'no');
+        return $this->notify ? \Yii::t('pendalf89\comments\CommentsModule.main', 'yes') : \Yii::t('pendalf89\comments\CommentsModule.main', 'no');
     }
 
     /**

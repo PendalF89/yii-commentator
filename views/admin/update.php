@@ -1,4 +1,4 @@
-<?php use modules\comments\helpers\CHelper as CHelper; ?>
+<?php use pendalf89\comments\helpers\CHelper as CHelper; ?>
 <div class="admin-comments">
 <h1><i class="fa fa-pencil"></i> Редактирование комментария #<?php echo $model->id; ?></h1>
 

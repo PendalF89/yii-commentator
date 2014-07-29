@@ -1,7 +1,7 @@
 <?php
-namespace modules\comments\helpers;
-use modules\comments\models\NewComments as NewComments;
-use modules\comments\models\Comment as Comment;
+namespace pendalf89\comments\helpers;
+use pendalf89\comments\models\NewComments as NewComments;
+use pendalf89\comments\models\Comment as Comment;
 use Yii;
 
 class CHelper

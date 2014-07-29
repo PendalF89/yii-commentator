@@ -1,5 +1,5 @@
 <?php
-namespace modules\comments\models;
+namespace pendalf89\comments\models;
 /**
  * This is the model class for table "new_comments".
  *
