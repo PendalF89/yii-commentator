@@ -1,0 +1,17 @@
+/******GRID******/
+.grid-view .rejected {
+    background: #ffd3c6!important;
+}
+
+.grid-view .pending {
+    /*background: #f7e0fc!important;*/
+    background: #fffdd6!important;
+}
+
+.grid-view .new {
+    background: #ECFBD4!important;
+}
+
+.admin-comments .control {
+    margin-top: 10px;
+}

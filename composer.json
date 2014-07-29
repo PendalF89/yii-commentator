@@ -1,0 +1,11 @@
+{
+    "name": "PendalF/yii-commentator",
+    "description": "Yii comments module",
+    "authors": [
+        {
+            "name": "PendalF",
+            "email": "pendalf@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+}

@@ -1,0 +1,50 @@
+/******COMMENTS******/
+.comments .title {
+    font-size: 1.5em;
+}
+
+.comments form {
+    margin-top: 10px;
+}
+
+.comments .username {
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 1.5em;
+}
+
+/******SINGLE COMMENT******/
+.comment {
+    border: 1px solid #e2e2e2;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.comments .new {
+    background: #fff0d3;
+}
+
+.comment .author {
+    font-weight: bold;
+    font-family: Arial;
+    font-size: .9em;
+}
+
+.comment .star {
+    color: #f9b700;
+}
+
+.comment .content {
+    margin-top: 5px;
+}
+
+.comment hr {
+    margin: 8px 0;
+}
+
+.comments .label,
+.comments .input-group span,
+.comments .input-group textarea,
+.comments .btn {
+    border-radius: 0;
+}
