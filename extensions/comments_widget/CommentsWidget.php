@@ -1,7 +1,7 @@
 <?php
 namespace pendalf89\yii_commentator\extensions\comments_widget;
 use Yii;
-use pendalf89\yii_commentator\models as models;
+use pendalf89\yii_commentator\models\Comment as Comment;
 
 class CommentsWidget extends \CWidget
 {
@@ -28,10 +28,10 @@ class CommentsWidget extends \CWidget
     {
         parent::init();
 
-        $this->model = new models\Comment();
+        $this->model = new Comment();
         $this->models = !empty($this->models)
             ? $this->models
-            : models\Comment::model()->page()->approved()->findAll();
+            : Comment::model()->page()->approved()->findAll();
 
         $this->publishAssets();
         $this->buildCommentsArray();
@@ -92,12 +92,12 @@ class CommentsWidget extends \CWidget
     public function publishAssets()
     {
         $url = Yii::app()->assetManager->publish(
-                Yii::getPathOfAlias('application.modules.comments.extensions.comments_widget.assets'), false, -1, true
+                Yii::getPathOfAlias('comments.extensions.comments_widget.assets'), false, -1, true
             ) . '/';
 
+        $this->publishPluginsAssets();
         Yii::app()->clientScript->registerCssFile($url . 'css/styles.css');
         Yii::app()->clientScript->registerScriptFile($url . 'js/script.js');
-        $this->publishPluginsAssets();
     }
 
     /**
@@ -106,7 +106,7 @@ class CommentsWidget extends \CWidget
     public function publishPluginsAssets()
     {
         $url = Yii::app()->assetManager->publish(
-                Yii::getPathOfAlias('application.modules.comments.extensions.comments_widget.assets'), false, -1, true
+                Yii::getPathOfAlias('comments.extensions.comments_widget.assets'), false, -1, true
             ) . '/';
 
         Yii::app()->clientScript->registerScriptFile($url . 'js/jquery.color.2.1.0.js');

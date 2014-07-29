@@ -33,10 +33,10 @@ class HandlerController extends \CController
 
         $this->performAjaxValidation($model);
 
-        if ( !isset($_POST['modules_comments_models_Comment']) )
+        if ( !isset($_POST['pendalf89_yii_commentator_models_Comment']) )
             return false;
 
-        $model->attributes = $_POST['modules_comments_models_Comment'];
+        $model->attributes = $_POST['pendalf89_yii_commentator_models_Comment'];
         $model->ip = CHelper::getRealIP();
         $model->setStatus();
 
@@ -56,7 +56,7 @@ class HandlerController extends \CController
 
         echo json_encode(array(
             'id' => $model->id,
-            'premoderate' => Yii::app()->getModule('comments')->getPremoderateStatus(),
+            'premoderate' => \Yii::app()->getModule('comments')->getPremoderateStatus(),
             'tree' => $widget->getTree(),
             'count' => count($widget->models),
             'modal' => $this->getModal(array(
@@ -72,14 +72,14 @@ class HandlerController extends \CController
      */
     public function actionUpdate()
     {
-        $model = Comment::model()->findByPk($_POST['modules_comments_models_Comment']['id']);
+        $model = Comment::model()->findByPk($_POST['pendalf89_yii_commentator_models_Comment']['id']);
         $model->setScenario('guest');
         $this->performAjaxValidation($model);
 
         if ( !$model->canUpdated() )
             return false;
 
-        $model->attributes = $_POST['modules_comments_models_Comment'];
+        $model->attributes = $_POST['pendalf89_yii_commentator_models_Comment'];
 
         if ( !$model->save() )
             return false;
@@ -134,7 +134,7 @@ class HandlerController extends \CController
         $widget = new CommentsWidget();
         $widget->publishPluginsAssets();
 
-        $this->renderPartial('application.modules.comments.extensions.comments_widget.views.form', array(
+        $this->renderPartial('comments.extensions.comments_widget.views.form', array(
             'model' => $model,
             'parent_id' => (int) $_POST['id'],
             'cancelButton' => true,
@@ -153,7 +153,7 @@ class HandlerController extends \CController
         $widget = new CommentsWidget();
         $widget->publishPluginsAssets();
 
-        $this->renderPartial('application.modules.comments.extensions.comments_widget.views.form', array(
+        $this->renderPartial('comments.extensions.comments_widget.views.form', array(
             'model' => $model,
             'cancelButton' => true,
             'url' => $_POST['url'],
@@ -224,7 +224,7 @@ class HandlerController extends \CController
      */
     private function getModal($options)
     {
-        return $this->renderPartial('application.modules.comments.extensions.comments_widget.views.modal', array(
+        return $this->renderPartial('comments.extensions.comments_widget.views.modal', array(
             'title' => $options['title'],
             'content' => $options['content'],
         ), true);
@@ -236,7 +236,7 @@ class HandlerController extends \CController
      */
     private function sendAdminNotify($newComment)
     {
-        $message = $this->renderPartial('application.modules.comments.extensions.comments_widget.views.email.notifyAdmin', array(
+        $message = $this->renderPartial('comments.extensions.comments_widget.views.email.notifyAdmin', array(
             'newComment' => $newComment
         ), true);
 
@@ -256,7 +256,7 @@ class HandlerController extends \CController
             if ($newComment->email === $subscriber->email)
                 continue;
 
-            $message = $this->renderPartial('application.modules.comments.extensions.comments_widget.views.email.notifyUser', array(
+            $message = $this->renderPartial('comments.extensions.comments_widget.views.email.notifyUser', array(
                 'newComment' => $newComment,
                 'userName' => $subscriber->getAuthor(),
                 'userEmail' => $subscriber->getEmail(),

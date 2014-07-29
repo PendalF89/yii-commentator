@@ -8,8 +8,8 @@ class CommentsModule extends \CWebModule
      * @var string формат даты
      */
     public $dateFormat = 'd.m.Y | H:i:s';
-
     /**
+
      * @var int отсутуп для уровней
      */
     public $margin = 70;
@@ -66,7 +66,7 @@ class CommentsModule extends \CWebModule
     /**
      * @var mixed выражение, определяющее является ли пользователь админом или нет. Анонимная функция должна возвращать true/false
      */
-    public $isSuperuser = false;
+    public $isSuperuser = '\Yii::app()->user->checkAccess("admin")';
 
     /**
      * @var int количество элементов на странице управления комментариями
@@ -210,13 +210,5 @@ class CommentsModule extends \CWebModule
         mb_language('uni');
         return mb_send_mail($to, $subject, $body,
             "From: {$this->fromEmail}\r\nContent-Type: text/html; charset=".\Yii::app()->charset."\r\nMIME-Version: 1.0");
-
-
-//        $email = \Yii::app()->email;
-//        $email->to = $to;
-//        $email->from = $this->fromEmail;
-//        $email->subject = $subject;
-//        $email->message = $body;
-//        $email->send();
     }
 }

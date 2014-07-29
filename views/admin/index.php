@@ -20,7 +20,6 @@ Yii::app()->clientScript->registerScript('reloadGrid',
 <div class="admin-comments">
 
 <h1>Менеджер комментариев</h1>
-
 <p>
     В поисковый запрос можно вводить условные операторы (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> или <b>=</b>).
 </p>

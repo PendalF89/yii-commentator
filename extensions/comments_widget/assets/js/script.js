@@ -127,6 +127,7 @@ $(document).ready( function(){
     // Обрабатываем отправку форму и вызываем либо обновление, либо создание нового комментария
     $(".comments").on("submit", "form", function(e){
         e.preventDefault();
+
         if ( $(this).find('[data-is-new]').data('is-new') )
             ajaxCreate( $(this) );
         else
@@ -175,7 +176,8 @@ $(document).ready( function(){
             "data": "id=" + id + "&like=" + like,
             "success": function(data) {
                 // Обновляем значение лайков
-                likes.text(data.likes);
+                if (data)
+                    likes.text(data.likes);
             }
         });
     });

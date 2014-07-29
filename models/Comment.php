@@ -74,8 +74,11 @@ class Comment extends \CActiveRecord
      */
     public function relations()
     {
+        if (!$userModelClass = \Yii::app()->getModule('comments')->userModelClass)
+            return array();
+
         return array(
-            'user' => array(self::BELONGS_TO, \Yii::app()->getModule('comments')->userModelClass, 'user_id'),
+            'user' => array(self::BELONGS_TO, $userModelClass, 'user_id'),
         );
     }
 
@@ -158,7 +161,7 @@ class Comment extends \CActiveRecord
 	{
 		$criteria=new \CDbCriteria;
 
-        $criteria->join = 'LEFT JOIN new_comments ON new_comments.comment_id = t.id AND new_comments.user_id = ' . \Yii::app()->getModule('comments')->getUserID();
+        $criteria->join = 'LEFT JOIN new_comments ON new_comments.comment_id = t.id AND new_comments.user_id = "' . \Yii::app()->getModule('comments')->getUserID() . '"';
 		$criteria->distinct = true;
 		$criteria->compare('id',$this->id);
 		$criteria->compare('parent_id',$this->parent_id);
@@ -227,7 +230,9 @@ class Comment extends \CActiveRecord
         if ( !$this->isNewRecord )
             return true;
 
-        $userModelClass = \Yii::app()->getModule('comments')->userModelClass;
+        if (!$userModelClass = \Yii::app()->getModule('comments')->userModelClass)
+            return true;
+
         $userModel = new $userModelClass();
         $userPK = $userModel->tableSchema->primaryKey;
         $userID = \Yii::app()->getModule('comments')->getUserID();

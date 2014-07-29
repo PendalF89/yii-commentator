@@ -41,10 +41,3 @@
 .comment hr {
     margin: 8px 0;
 }
-
-.comments .label,
-.comments .input-group span,
-.comments .input-group textarea,
-.comments .btn {
-    border-radius: 0;
-}

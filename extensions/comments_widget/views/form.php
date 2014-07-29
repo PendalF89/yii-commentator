@@ -1,5 +1,5 @@
 <?php $form = $this->beginWidget('CActiveForm', array(
-    'action' => $model->isNewRecord ? '/comments/handler/create/' : '/comments/handler/update/',
+    'action' => $model->isNewRecord ? \Yii::app()->createUrl('/comments/handler/create') : \Yii::app()->createUrl('/comments/handler/update'),
     'method' => 'post',
     'id' => $model->isNewRecord ? 'comment-form' : 'comment-form-'. $model->id,
     'enableAjaxValidation' => true,

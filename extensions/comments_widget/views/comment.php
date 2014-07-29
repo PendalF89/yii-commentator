@@ -13,7 +13,7 @@
 <div class="comment well well-sm<?php echo $newCssClass; ?>"<?php echo ($margin != 0) ? ' style="margin-left: ' . $margin . 'px"' : '' ?>
      data-id="<?php echo $comment->id; ?>">
     <span class="author"><i class="fa fa-user"></i>
-        <?php echo !empty($comment->user->username) ? '<i class="fa fa-star star"></i>' : ''; ?>
+        <?php echo !empty($comment->user) ? '<i class="fa fa-star star"></i>' : ''; ?>
         <?php echo $comment->getAuthor(); ?>
     </span>
 

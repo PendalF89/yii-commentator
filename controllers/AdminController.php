@@ -4,7 +4,7 @@ use pendalf89\yii_commentator\models\Comment as Comment;
 use pendalf89\yii_commentator\models\NewComments as NewComments;
 use pendalf89\yii_commentator\models\CommentSettings as CommentSettings;
 
-class AdminController extends \Controller
+class AdminController extends \CController
 {
     /**
      * Инициализация контроллера
@@ -15,7 +15,7 @@ class AdminController extends \Controller
 
         \Yii::app()->clientScript->registerCssFile(
             \Yii::app()->assetManager->publish(
-                \Yii::getPathOfAlias('application.modules.comments.assets.css') . '/styles.css', false, -1, true
+                \Yii::getPathOfAlias('comments.assets.css') . '/styles.css', false, -1, true
             )
         );
     }
@@ -60,7 +60,7 @@ class AdminController extends \Controller
         $userID = \Yii::app()->getModule('comments')->getUserID();
         NewComments::model()->deleteByPk(array('user_id'=>$userID,'comment_id'=>$id));
 
-		$this->render('application.modules.comments.views.admin.view',array(
+		$this->render('comments.views.admin.view',array(
 			'model' => $model,
 		));
 	}
@@ -77,14 +77,14 @@ class AdminController extends \Controller
         $userID = \Yii::app()->getModule('comments')->getUserID();
         NewComments::model()->deleteByPk(array('user_id'=>$userID,'comment_id'=>$id));
 
-		if ( isset($_POST['modules_comments_models_Comment']) )
+		if ( isset($_POST['pendalf89_yii_commentator_models_Comment']) )
 		{
-			$model->attributes=$_POST['modules_comments_models_Comment'];
+			$model->attributes=$_POST['pendalf89_yii_commentator_models_Comment'];
 			if( $model->save() )
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
-		$this->render('application.modules.comments.views.admin.update',array(
+		$this->render('comments.views.admin.update',array(
 			'model'=>$model,
 		));
 	}
@@ -100,7 +100,7 @@ class AdminController extends \Controller
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('application.modules.comments.views.admin.index'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('comments.views.admin.index'));
 	}
 
 	/**
@@ -110,10 +110,10 @@ class AdminController extends \Controller
 	{
 		$model = new Comment('search');
 		$model->unsetAttributes();
-		if ( isset($_GET['modules_comments_models_Comment']) )
-			$model->attributes = $_GET['modules_comments_models_Comment'];
+		if ( isset($_GET['pendalf89_yii_commentator_models_Comment']) )
+			$model->attributes = $_GET['pendalf89_yii_commentator_models_Comment'];
 
-		$this->render('application.modules.comments.views.admin.index', array(
+		$this->render('comments.views.admin.index', array(
 			'model' => $model,
 		));
 	}
@@ -125,14 +125,14 @@ class AdminController extends \Controller
     {
         $model = CommentSettings::load();
 
-        if ( isset($_POST['modules_comments_models_CommentSettings']) )
+        if ( isset($_POST['pendalf89_yii_commentator_models_CommentSettings']) )
         {
-            $model->attributes = $_POST['modules_comments_models_CommentSettings'];
+            $model->attributes = $_POST['pendalf89_yii_commentator_models_CommentSettings'];
             if ( $model->save() )
                 \Yii::app()->user->setFlash('settings_saved', \Yii::t('pendalf89\yii_commentator\CommentsModule.main', 'Settings saved successfully'));
         }
 
-        $this->render('application.modules.comments.views.admin.settings', array('model'=>$model));
+        $this->render('comments.views.admin.settings', array('model'=>$model));
     }
 
     /**
@@ -143,11 +143,13 @@ class AdminController extends \Controller
         if ( !isset($_POST['status']) || !isset($_POST['checkboxes']) )
             return;
 
+        $userID = \Yii::app()->getModule('comments')->getUserID();
+
         foreach ($this->loadModels($_POST['checkboxes']) as $model)
         {
             $model->status = $_POST['status'];
-            $model->is_new = Comment::OLD_COMMENT;
             $model->save();
+            NewComments::model()->deleteByPk(array('user_id'=>$userID,'comment_id'=>$model->id));
         }
     }
 
