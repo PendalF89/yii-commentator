@@ -1,5 +1,5 @@
-<?php use pendalf89\comments\helpers\CHelper as CHelper; ?>
-<?php use pendalf89\comments\models\NewComments as NewComments; ?>
+<?php use pendalf89\yii_commentator\helpers\CHelper as CHelper; ?>
+<?php use pendalf89\yii_commentator\models\NewComments as NewComments; ?>
 <a name="comment_<?php echo $comment->id; ?>"></a>
 
 <?php $newCssClass = ''; ?>

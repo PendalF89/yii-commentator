@@ -1,10 +1,10 @@
 <?php
-namespace pendalf89\comments\controllers;
+namespace pendalf89\yii_commentator\controllers;
 use Yii;
-use pendalf89\comments\models\Comment as Comment;
-use pendalf89\comments\helpers\CHelper as CHelper;
-use pendalf89\comments\extensions\comments_widget\CommentsWidget as CommentsWidget;
-use pendalf89\comments\extensions\email\Email as Email;
+use pendalf89\yii_commentator\models\Comment as Comment;
+use pendalf89\yii_commentator\helpers\CHelper as CHelper;
+use pendalf89\yii_commentator\extensions\comments_widget\CommentsWidget as CommentsWidget;
+use pendalf89\yii_commentator\extensions\email\Email as Email;
 
 class HandlerController extends \CController
 {

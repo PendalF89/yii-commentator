@@ -1,6 +1,6 @@
 <?php
-namespace pendalf89\comments;
-use pendalf89\comments\models\CommentSettings as CommentSettings;
+namespace pendalf89\yii_commentator;
+use pendalf89\yii_commentator\models\CommentSettings as CommentSettings;
 
 class CommentsModule extends \CWebModule
 {
@@ -111,7 +111,7 @@ class CommentsModule extends \CWebModule
     /**
      * @var string пространство имён контроллера
      */
-    public $controllerNamespace = 'pendalf89\comments\controllers';
+    public $controllerNamespace = 'pendalf89\yii_commentator\controllers';
 
     /**
      * Инициализация модуля

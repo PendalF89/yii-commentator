@@ -1,4 +1,4 @@
-<?php use pendalf89\comments\helpers\CHelper as CHelper; ?>
+<?php use pendalf89\yii_commentator\helpers\CHelper as CHelper; ?>
 <div class="admin-comments">
 <h1><i class="fa fa-search"></i> Просмотр комментария #<?php echo $model->id; ?></h1>
 

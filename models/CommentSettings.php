@@ -1,5 +1,5 @@
 <?php
-namespace pendalf89\comments\models;
+namespace pendalf89\yii_commentator\models;
 /**
  * This is the model class for table "comment_settings".
  *
@@ -83,8 +83,8 @@ class CommentSettings extends \CActiveRecord
     public static function booleanArray()
     {
         return array(
-            self::YES => \Yii::t('pendalf89\comments\CommentsModule.main', 'yes'),
-            self::NO => \Yii::t('pendalf89\comments\CommentsModule.main', 'no'),
+            self::YES => \Yii::t('pendalf89\yii_commentator\CommentsModule.main', 'yes'),
+            self::NO => \Yii::t('pendalf89\yii_commentator\CommentsModule.main', 'no'),
         );
     }
 

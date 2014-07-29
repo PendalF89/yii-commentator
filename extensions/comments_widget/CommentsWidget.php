@@ -1,7 +1,7 @@
 <?php
-namespace pendalf89\comments\extensions\comments_widget;
+namespace pendalf89\yii_commentator\extensions\comments_widget;
 use Yii;
-use pendalf89\comments\models as models;
+use pendalf89\yii_commentator\models as models;
 
 class CommentsWidget extends \CWidget
 {

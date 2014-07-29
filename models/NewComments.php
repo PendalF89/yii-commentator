@@ -1,5 +1,5 @@
 <?php
-namespace pendalf89\comments\models;
+namespace pendalf89\yii_commentator\models;
 /**
  * This is the model class for table "new_comments".
  *

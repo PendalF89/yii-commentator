@@ -1,6 +1,6 @@
 <?php
-namespace pendalf89\comments\extensions\count_widget;
-use pendalf89\comments\helpers\CHelper as CHelper;
+namespace pendalf89\yii_commentator\extensions\count_widget;
+use pendalf89\yii_commentator\helpers\CHelper as CHelper;
 
 class CountWidget extends \CWidget
 {
