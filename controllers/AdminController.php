@@ -6,6 +6,8 @@ use pendalf89\yii_commentator\models\CommentSettings as CommentSettings;
 
 class AdminController extends \CController
 {
+    public $breadcrumbs = array();
+
     /**
      * Инициализация контроллера
      */
