@@ -4,10 +4,8 @@ use pendalf89\yii_commentator\models\Comment as Comment;
 use pendalf89\yii_commentator\models\NewComments as NewComments;
 use pendalf89\yii_commentator\models\CommentSettings as CommentSettings;
 
-class AdminController extends \CController
+class AdminController extends \Controller
 {
-    public $breadcrumbs = array();
-
     /**
      * Инициализация контроллера
      */
@@ -82,6 +80,7 @@ class AdminController extends \CController
 		if ( isset($_POST['pendalf89_yii_commentator_models_Comment']) )
 		{
 			$model->attributes=$_POST['pendalf89_yii_commentator_models_Comment'];
+
 			if( $model->save() )
 				$this->redirect(array('view','id'=>$model->id));
 		}

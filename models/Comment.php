@@ -39,6 +39,11 @@ class Comment extends \CActiveRecord
      */
     private $isLiked;
 
+    /**
+     * @var string своё значение поля created
+     */
+    public $custom_created;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -57,6 +62,8 @@ class Comment extends \CActiveRecord
             array('author, email, content', 'required', 'on' => 'guest', 'message' => 'Это поле должно быть заполнено'),
             // Сценарий "авторизованный пользователь"
             array('content', 'required', 'on' => 'authorized', 'message' => 'Это поле должно быть заполнено'),
+            // Сценарий "update"
+            array('custom_created', 'required', 'on' => 'update'),
             // Всё остальное
             array('url, ip, content', 'required'),
             array('parent_id, user_id, likes, status, notify, created, updated', 'numerical', 'integerOnly'=>true),
@@ -211,6 +218,9 @@ class Comment extends \CActiveRecord
             $this->created = time();
         else
             $this->updated = time();
+
+        if ( !empty($this->custom_created) )
+            $this->created = strtotime($this->custom_created);
 
         $this->content = trim( strip_tags($this->content) );
         $this->author = trim( strip_tags($this->author) );

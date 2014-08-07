@@ -1,0 +1,1 @@
+<input type="text" class="timepicker" id="<?php echo $this->id; ?>" value="<?php echo $this->model->created ? date('Y-m-d H:i:s', $this->model->created ) : $this->options['value']; ?>" name="<?php echo 'pendalf89_yii_commentator_models_Comment' . (!empty($this->options['tabularLevel']) ? $this->options['tabularLevel'] : '').'['.$this->name.']'; ?>" />

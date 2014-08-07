@@ -31,7 +31,6 @@ Yii::app()->clientScript->registerScript('reloadGrid',
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id' => 'comment-grid',
 	'dataProvider' => $model->search(),
-	'ajaxUrl' => \Yii::app()->createUrl('/comments/admin/index'),
 	'filter' => $model,
     'rowCssClassExpression' => function($row, $data) {
         return $row%2? "even{$data->getRowCssClass()}" : "odd{$data->getRowCssClass()}";

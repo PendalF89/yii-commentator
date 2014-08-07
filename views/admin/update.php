@@ -31,6 +31,18 @@
             <?php echo $form->textField($model,'email',array('class'=>'form-control')); ?>
             <?php echo $form->error($model,'email',array('class'=>'text-danger')); ?>
         </div>
+
+        <div class="form-group">
+            <?php echo $form->labelEx($model,'created'); ?>
+            <?php $this->widget('pendalf89\yii_commentator\extensions\timepicker\Timepicker', array(
+                'model' => $model,
+                'name' => 'custom_created',
+                'options' => array(
+                    'stepSecond' => 1,
+                ),
+            )); ?>
+            <?php echo $form->error($model,'created',array('class'=>'text-danger')); ?>
+        </div>
     </div>
     <div class="col-md-6">
 
@@ -73,7 +85,6 @@
             <?php endif; ?>
             IP: <span class="label label-default"><?php echo $model->ip; ?></span>
         </p>
-
     </div>
 
 </div>

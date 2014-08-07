@@ -73,13 +73,17 @@ class HandlerController extends \CController
     public function actionUpdate()
     {
         $model = Comment::model()->findByPk($_POST['pendalf89_yii_commentator_models_Comment']['id']);
-        $model->setScenario('guest');
-        $this->performAjaxValidation($model);
 
         if ( !$model->canUpdated() )
             return false;
 
+        $model->setScenario('guest');
+
+        if ( $user = \Yii::app()->getModule('comments')->loadUser() )
+            $model->setScenario('authorized');
+
         $model->attributes = $_POST['pendalf89_yii_commentator_models_Comment'];
+        $this->performAjaxValidation($model);
 
         if ( !$model->save() )
             return false;
