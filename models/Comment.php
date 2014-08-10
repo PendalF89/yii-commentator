@@ -63,7 +63,7 @@ class Comment extends \CActiveRecord
             // Сценарий "авторизованный пользователь"
             array('content', 'required', 'on' => 'authorized', 'message' => 'Это поле должно быть заполнено'),
             // Сценарий "update"
-            array('custom_created', 'required', 'on' => 'update'),
+            array('custom_created', 'length', 'max'=>128, 'on' => 'update'),
             // Всё остальное
             array('url, ip, content', 'required'),
             array('parent_id, user_id, likes, status, notify, created, updated', 'numerical', 'integerOnly'=>true),
