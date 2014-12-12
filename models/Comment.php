@@ -124,7 +124,7 @@ class Comment extends \CActiveRecord
 
         $criteria = new \CDbCriteria();
         $criteria->addInCondition('url', array($url));
-        $criteria->order = 'parent_id';
+        $criteria->order = 'created';
 
         $this->getDbCriteria()->mergeWith($criteria);
         return $this;
