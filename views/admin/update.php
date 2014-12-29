@@ -21,7 +21,7 @@
 
         <div class="form-group">
             <?php echo $form->labelEx($model,'author'); ?>
-            <?php echo !empty($model->user->username) ? "<small>{$model->user->username}</small>" : ''?>
+            <?php echo !empty($model->user) ? '<small>' . $model->user->{\Yii::app()->getModule('comments')->usernameField} . '</small>' : ''?>
             <?php echo $form->textField($model,'author',array('class'=>'form-control')); ?>
             <?php echo $form->error($model,'author',array('class'=>'text-danger')); ?>
         </div>
