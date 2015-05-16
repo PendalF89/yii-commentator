@@ -2,8 +2,7 @@
     <h1><i class="fa fa-cogs"></i> Настройки модуля "Комментарии"</h1>
 
     <?php if ( \Yii::app()->user->hasFlash('settings_saved') ) : ?>
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"><i class="fa fa-times"></i></span><span class="sr-only">Закрыть</span></button>
+        <div class="alert alert-success" role="alert">
             <i class="fa fa-check-circle-o"></i> <?php echo \Yii::app()->user->getFlash('settings_saved'); ?>
         </div>
     <?php endif; ?>
