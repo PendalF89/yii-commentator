@@ -257,7 +257,7 @@ class HandlerController extends \CController
         {
             // Если email нового комментария (отправителя) совпадает с email подписчика,
             // то выходит что это один и тот же человек, ему уведомление не высылаем, пропускаем итерацию цикла
-            if ($newComment->email === $subscriber->email)
+            if ($newComment->getEmail() === $subscriber->getEmail())
                 continue;
 
             $message = $this->renderPartial('comments.extensions.comments_widget.views.email.notifyUser', array(
