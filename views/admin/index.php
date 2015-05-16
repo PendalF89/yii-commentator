@@ -17,7 +17,7 @@ Yii::app()->clientScript->registerScript('reloadGrid',
 }');
 ?>
 
-<div class="admin-comments">
+<div class="comments admin-comments">
 
 <h1>Менеджер комментариев</h1>
 <p>

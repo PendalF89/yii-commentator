@@ -1,4 +1,4 @@
-<div class="admin-comments">
+<div class="comments admin-comments">
     <h1><i class="fa fa-cogs"></i> Настройки модуля "Комментарии"</h1>
 
     <?php if ( \Yii::app()->user->hasFlash('settings_saved') ) : ?>

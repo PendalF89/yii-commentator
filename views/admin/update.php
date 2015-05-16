@@ -1,5 +1,5 @@
 <?php use pendalf89\yii_commentator\helpers\CHelper as CHelper; ?>
-<div class="admin-comments">
+<div class="comments admin-comments">
 <h1><i class="fa fa-pencil"></i> Редактирование комментария #<?php echo $model->id; ?></h1>
 
 <?php $form = $this->beginWidget('CActiveForm', array(
