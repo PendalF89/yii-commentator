@@ -240,6 +240,12 @@ class HandlerController extends \CController
      */
     private function sendAdminNotify($newComment)
     {
+	    // Если email комментария совпадает с email'ом админа, то сообщение не отправляем,
+	    // потому что это сообщение написал админ.
+	    if ($newComment->getEmail() === $this->module->adminEmail) {
+		    return;
+	    }
+
         $message = $this->renderPartial('comments.extensions.comments_widget.views.email.notifyAdmin', array(
             'newComment' => $newComment
         ), true);
