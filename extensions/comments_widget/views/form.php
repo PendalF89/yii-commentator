@@ -55,6 +55,7 @@
             <?php endif; ?>
         </div>
         <label class="checkbox-inline">
+	        <?php $model->notify = $model->isNewRecord ? 1 : $model->notify ?>
             <?php echo $form->checkBox($model, 'notify'); ?> Уведомлять меня о новых комментариях
         </label>
     </div>
