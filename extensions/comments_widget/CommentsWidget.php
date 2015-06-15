@@ -95,22 +95,8 @@ class CommentsWidget extends \CWidget
                 Yii::getPathOfAlias('comments.extensions.comments_widget.assets'), false, -1, true
             ) . '/';
 
-        $this->publishPluginsAssets();
         Yii::app()->clientScript->registerCssFile($url . 'css/styles.css');
         Yii::app()->clientScript->registerScriptFile($url . 'js/script.js');
-    }
-
-    /**
-     * Публикует ресурсы плагинов
-     */
-    public function publishPluginsAssets()
-    {
-        $url = Yii::app()->assetManager->publish(
-                Yii::getPathOfAlias('comments.extensions.comments_widget.assets'), false, -1, true
-            ) . '/';
-
-        Yii::app()->clientScript->registerScriptFile($url . 'js/jquery.color.2.1.0.js');
-        Yii::app()->clientScript->registerScriptFile($url . 'js/jquery.scrollTo.min.js');
     }
 
     /**

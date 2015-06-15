@@ -12,13 +12,13 @@
 
 <div class="comments">
     <?php if ( !empty($count) ) : ?>
-        <span class="title"><i class="fa fa-comments"></i> Комментарии (<span role="count"><?php echo $count; ?></span>):</span>
+        <span class="title"><i class="fa fa-comments"></i> Комментарии (<span data-role="count"><?php echo $count; ?></span>):</span>
     <?php endif; ?>
 
-    <div role="tree"><?php $this->renderTree(); ?></div>
+    <div data-role="tree"><?php $this->renderTree(); ?></div>
 
     <span class="title"><i class="fa fa-comment"></i> Добавить комментарий:</span>
     <?php $this->render('form', array('model' => $model, 'url' => \Yii::app()->request->requestUri)); ?>
 
-    <div role="modal-container"></div>
+    <div data-role="modal-container"></div>
 </div>

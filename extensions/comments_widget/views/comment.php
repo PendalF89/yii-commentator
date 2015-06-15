@@ -19,7 +19,7 @@
 
     <div class="pull-right">
         <a href="#comment_like" title="Мне нравится" data-like="1" class="label label-success"><i class="fa fa-thumbs-up"></i></a>
-        <span role="likes" class="label label-primary"><?php echo $comment->getLikes(); ?></span>
+        <span data-role="likes" class="label label-primary"><?php echo $comment->getLikes(); ?></span>
         <a href="#comment_like" title="Мне не нравится" data-like="0" class="label label-danger"><i class="fa fa-thumbs-down"></i></a>
 
         <span class="label label-default"><?php echo CHelper::date( $comment->created ); ?></span>
@@ -40,5 +40,5 @@
         <?php endif; ?>
     </div>
 
-    <div role="dynamic-form-container"></div>
+    <div data-role="dynamic-form-container"></div>
 </div>

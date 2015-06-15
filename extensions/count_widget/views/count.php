@@ -4,7 +4,7 @@
         <a href="<?php echo $url; ?>">
     <?php endif; ?>
 
-        <span role="new-comments" class="badge">+<?php echo $count; ?></span>
+        <span data-role="new-comments" class="badge">+<?php echo $count; ?></span>
 
     <?php if ( $this->withLink ) : ?>
         </a>

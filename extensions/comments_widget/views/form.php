@@ -14,7 +14,7 @@
 <div class="row">
     <?php if ( !$user = \Yii::app()->getModule('comments')->loadUser() ) : ?>
 
-        <div role="input-container" class="form-group col-md-6">
+        <div data-role="input-container" class="form-group col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">Имя:</span>
                 <?php echo $form->textField($model, 'author', array('class'=>'form-control', 'placeholder' => 'Введите ваше имя')); ?>
@@ -22,7 +22,7 @@
             <?php echo $form->error($model, 'author', array('class' => 'text-danger')); ?>
         </div>
 
-        <div role="input-container" class="form-group col-md-6">
+        <div data-role="input-container" class="form-group col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">E-mail:</span>
                 <?php echo $form->textField($model, 'email', array('class'=>'form-control', 'placeholder' => 'Введите ваш e-mail')); ?>
@@ -39,7 +39,7 @@
         </div>
     <?php endif; ?>
 
-    <div role="input-container" class="form-group col-md-12">
+    <div data-role="input-container" class="form-group col-md-12">
         <div class="input-group">
             <span class="input-group-addon">Комментарий:</span>
             <?php echo $form->textArea($model, 'content', array('class'=>'form-control', 'placeholder' => 'Напишите комментарий', 'rows' => 3)); ?>
@@ -49,9 +49,9 @@
 
     <div class="form-group col-md-12">
         <div class="btn-group">
-            <button role="reply" data-is-new="<?php echo $model->isNewRecord ? 'true' : 'false' ?>" class="btn btn-success"><i class="fa fa-reply"></i> Отправить комментарий</button>
+            <button data-role="reply" data-is-new="<?php echo $model->isNewRecord ? 'true' : 'false' ?>" class="btn btn-success"><i class="fa fa-reply"></i> Отправить комментарий</button>
             <?php if ( !empty($cancelButton) ) : ?>
-                <button role="cancel" class="btn btn-danger"><i class="fa fa-times"></i> Отмена</button>
+                <button data-role="cancel" class="btn btn-danger"><i class="fa fa-times"></i> Отмена</button>
             <?php endif; ?>
         </div>
         <label class="checkbox-inline">

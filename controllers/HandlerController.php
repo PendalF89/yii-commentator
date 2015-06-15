@@ -135,8 +135,6 @@ class HandlerController extends \CController
     public function actionReplyForm()
     {
         $model = new Comment('guest');
-        $widget = new CommentsWidget();
-        $widget->publishPluginsAssets();
 
         $this->renderPartial('comments.extensions.comments_widget.views.form', array(
             'model' => $model,
@@ -154,8 +152,6 @@ class HandlerController extends \CController
     {
         $model = Comment::model()->findByPk($_POST['id']);
         $model->setScenario('guest');
-        $widget = new CommentsWidget();
-        $widget->publishPluginsAssets();
 
         $this->renderPartial('comments.extensions.comments_widget.views.form', array(
             'model' => $model,
