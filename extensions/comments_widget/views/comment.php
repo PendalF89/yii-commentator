@@ -1,5 +1,6 @@
 <?php use pendalf89\yii_commentator\helpers\CHelper as CHelper; ?>
 <?php use pendalf89\yii_commentator\models\NewComments as NewComments; ?>
+<?php $enableMicrodata = $this->enableMicrodata; ?>
 <a name="comment_<?php echo $comment->id; ?>"></a>
 
 <?php $newCssClass = ''; ?>
@@ -10,11 +11,10 @@
     <?php endif; ?>
 <?php endif; ?>
 
-<div class="comment well well-sm<?php echo $newCssClass; ?>"<?php echo ($margin != 0) ? ' style="margin-left: ' . $margin . 'px"' : '' ?>
-     data-id="<?php echo $comment->id; ?>">
-    <span class="author"><i class="fa fa-user"></i>
+<div<?php echo $enableMicrodata ? ' itemprop="comment" itemscope itemtype="http://schema.org/Comment"' : '' ?> class="comment well well-sm<?php echo $newCssClass; ?>"<?php echo ($margin != 0) ? ' style="margin-left: ' . $margin . 'px"' : '' ?> data-id="<?php echo $comment->id; ?>">
+    <span<?php echo $enableMicrodata ? ' itemprop="creator" itemscope itemtype="http://schema.org/Person"' : '' ?> class="author"><i class="fa fa-user"></i>
         <?php echo !empty($comment->user) ? '<i class="fa fa-star star"></i>' : ''; ?>
-        <?php echo $comment->getAuthor(); ?>
+	    <?php echo $enableMicrodata ? '<span itemprop="name">' . $comment->getAuthor() . '</span>' : $comment->getAuthor() ?>
     </span>
 
     <div class="pull-right">
@@ -22,14 +22,13 @@
         <span data-role="likes" class="label label-primary"><?php echo $comment->getLikes(); ?></span>
         <a href="#comment_like" title="Мне не нравится" data-like="0" class="label label-danger"><i class="fa fa-thumbs-down"></i></a>
 
-        <span class="label label-default"><?php echo CHelper::date( $comment->created ); ?></span>
+        <time<?php echo $enableMicrodata ? ' itemprop="datePublished"' : '' ?> datetime="<?php echo date('Y-m-d', $comment->created) ?>" class="label label-default"><?php echo CHelper::date( $comment->created ); ?></time>
 
         <a href="#comment_<?php echo $comment->id; ?>" class="label label-default" title="Ссылка на этот комментарий">#</a>
     </div>
 
-    <div class="content"><?php echo $comment->content; ?></div>
-    <hr/>
-
+    <div<?php echo $enableMicrodata ? ' itemprop="text"' : '' ?> class="content"><?php echo $comment->content; ?></div>
+    <hr>
     <div class="btn-group">
         <a href="#comment_reply" title="Ответить на этот комментарий" data-id="<?php echo $comment->id; ?>" class="btn btn-default btn-xs"><i class="fa fa-reply"></i> Ответить</a>
         <?php if ( $comment->canUpdated() ) : ?>

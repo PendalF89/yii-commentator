@@ -9,10 +9,11 @@
     var pageUrl = "'. \Yii::app()->request->requestUri .'";',
     \CClientScript::POS_HEAD
 ); ?>
+<?php $enableMicrodata = $this->enableMicrodata; ?>
 
 <div class="comments">
     <?php if ( !empty($count) ) : ?>
-        <span class="title"><i class="fa fa-comments"></i> Комментарии (<span data-role="count"><?php echo $count; ?></span>):</span>
+        <span class="title"><i class="fa fa-comments"></i> Комментарии (<span<?php echo $enableMicrodata ? ' itemprop="commentCount"' : '' ?> data-role="count"><?php echo $count; ?></span>):</span>
     <?php endif; ?>
 
     <div data-role="tree"><?php $this->renderTree(); ?></div>

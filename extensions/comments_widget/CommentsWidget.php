@@ -5,6 +5,14 @@ use pendalf89\yii_commentator\models\Comment as Comment;
 
 class CommentsWidget extends \CWidget
 {
+	/**
+	 * @var boolean разрешить ли использовать микроразметку. Для корректной работы виджет комментариев должен
+	 * вызываться внутри статьи (внутри тега с атрибутами 'itemtype="http://schema.org/Article"')
+	 * @see http://ruschema.org/Article
+	 * @see http://ruschema.org/Comment
+	 */
+	public $enableMicrodata = false;
+
     /**
      * @var array массив с комментариями
      */
