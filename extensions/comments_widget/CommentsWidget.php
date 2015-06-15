@@ -95,8 +95,8 @@ class CommentsWidget extends \CWidget
                 Yii::getPathOfAlias('comments.extensions.comments_widget.assets'), false, -1, true
             ) . '/';
 
-        Yii::app()->clientScript->registerCssFile($url . 'css/styles.css');
-        Yii::app()->clientScript->registerScriptFile($url . 'js/script.js');
+        Yii::app()->clientScript->registerCssFile($url . 'css/styles.min.css');
+        Yii::app()->clientScript->registerScriptFile($url . 'js/script.min.js');
     }
 
     /**
