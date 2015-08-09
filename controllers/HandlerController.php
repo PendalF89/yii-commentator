@@ -4,7 +4,6 @@ use Yii;
 use pendalf89\yii_commentator\models\Comment as Comment;
 use pendalf89\yii_commentator\helpers\CHelper as CHelper;
 use pendalf89\yii_commentator\extensions\comments_widget\CommentsWidget as CommentsWidget;
-use pendalf89\yii_commentator\extensions\email\Email as Email;
 
 class HandlerController extends \CController
 {
