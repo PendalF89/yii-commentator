@@ -22,12 +22,12 @@ class CommentsWidget extends \CWidget
      * @var object экземпляр класса Comment
      */
 
-    private $model;
+    protected $model;
     /**
      * @var array массив с комментариями для дерева
      */
 
-    private $commentsArray = array();
+	protected $commentsArray = array();
 
     /**
      * Инициализация виджета
