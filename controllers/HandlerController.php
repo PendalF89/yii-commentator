@@ -222,7 +222,7 @@ class HandlerController extends \CController
      * @param $options array
      * @return string
      */
-    private function getModal($options)
+    protected function getModal($options)
     {
         return $this->renderPartial('comments.extensions.comments_widget.views.modal', array(
             'title' => $options['title'],
@@ -234,7 +234,7 @@ class HandlerController extends \CController
      * Отправляет уведомление админу о новых комментариях
      * @param $newComment
      */
-    private function sendAdminNotify($newComment)
+	protected function sendAdminNotify($newComment)
     {
 	    // Если email комментария совпадает с email'ом админа, то сообщение не отправляем,
 	    // потому что это сообщение написал админ.
@@ -253,7 +253,7 @@ class HandlerController extends \CController
      * Отправляет пачками письма пользователям о новых комментариях
      * @param $newComment
      */
-    private function sendUserNotifies($newComment)
+	protected function sendUserNotifies($newComment)
     {
         foreach (Comment::model()->page($newComment->url)->notify()->findAll() as $subscriber)
         {
